@@ -1,0 +1,73 @@
+section{
+    display:flex;
+    justify-content: center;
+    align-items:center;
+    min-height:100vh;
+    background:#034071;
+}
+section .runway{
+    position:relative;
+   left:5%;
+    width:40%;
+    height:100vh;
+    background: #1378bc;
+    border-left:20px solid #0D5B8E;
+    
+    border-right:20px solid #0D5B8E;
+    transition:transform 1s;
+    transition-delay: 1s;
+    transform-origin:top;
+}
+/* plane fly on clikcing and holding */
+section:active .runway{
+   transform:scaleX(0.7) scaleY(0);
+   transition-delay: 0s;
+   transform-origin: bottom;
+}
+section .runway::before{
+
+    content:'';
+    position:absolute;
+    top:0;
+    left:50%;
+    transform:translateX(-50%);
+    background: #fff;
+    width:15px;
+    height:100%;
+    background:repeating-linear-gradient(transparent 0%,transparent 50%,#fff 100%);
+    background-size:10px 320px;
+    animation: animateRunway 0.5s linear infinite;
+}
+/* add effects when there is a left click */
+section:active .runway::before{
+    animation: animateRunway 0.25s linear infinite;
+
+}
+
+@keyframes animateRunway {
+    0%{
+        background-position-y:0px;
+    }
+    100%{
+        background-position-y:640px;
+    }
+    
+}
+.plane{
+    position:relative;
+    right:25%;
+    
+    max-width:250px;
+    pointer-events: none;
+    filter:drop-shadow(10px 10px 0 rgba(0,0,0,0.5));
+    transition:5s;
+    
+
+}
+
+section:active .plane{
+    max-width:500px;
+    filter:drop-shadow(10px 10px 0 rgba(0,0,0,0.5));
+
+
+}

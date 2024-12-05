@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+
+        
+      
+        body{
+           
+            font-family:sans-serif;
+            
+
+        }
+
+        
+        #header{
+            position: relative;
+            height:100vh;
+            background-image: url(./images/1.png);
+            background-size: cover;
+            background-attachment: fixed;
+            overflow:hidden;
+            
+
+
+        }
+
+        /* Navbar styling */
+nav {
+    position: relative;
+    top: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.7); /* Slightly transparent black */
+    padding: 10px 20px;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    background-image: url(./parallex/imggg/1.png);
+}
+
+nav a {
+    color: #fff; /* White text */
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+nav a:hover {
+    color: #f4b400; /* Google Yellow */
+    transform: scale(1.1);
+}
+
+nav a.active {
+    color: #34a853; /* Google Green */
+}
+
+        header .logo-header{
+            position:absolute;
+            top:4%;
+            left:0;
+            right:0;
+            display:block;
+            width:100%;
+            height:auto;
+
+
+        }
+
+        header .fore-bird{
+           position:absolute;
+           top:199px;
+           right:350px;
+           width:795px;
+           height:600px;
+           background-image:url(./images/nisha_bg.png);
+           background-repeat: no-repeat;
+           background-position: right bottom;
+          border-radius:200px;
+           z-index:1;
+           margin-top:150px;
+
+        }
+         .click{
+            position: relative;
+            top:0;
+            bottom:0;
+            text-align: center;
+            font-size:30px;
+            background-color: #34a853;
+            color:black;
+            padding:5px;
+
+        }
+
+      
+
+
+    </style>
+    <link rel="stylesheet" href="index.css">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parallex Website</title>
+
+</head>
+<body>
+   <p class="click">Click each menu to change the background and Do check the Parallex Effect</p>
+    <header id="header">
+        <div class="back-bird"></div>
+        
+        <nav role='navigation'>
+            <a data-page="home" class="active" href="#">Starts</a>
+            <a data-page="about" href="#">Forest highway</a>
+            <a data-page="clients" href="#">SunSet</a>
+            <a data-page="contact" href="#">Beach</a>
+          </nav> 
+        <img src="./images/banner_text-removebg-preview.png" class="logo-header" alt="">
+        <div class="fore-bird"></div>
+    </header>
+    <p class="click">Left Click to Take off Flight and Land it</p>
+    <section>
+     
+        
+        <div class="runway"></div>
+       
+        <img src="./images/flight.png" class="plane">
+    </section>
+    
+   
+</body>
+<script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+<script>
+
+const navLinks = document.querySelectorAll("nav a");
+navLinks.forEach(link => {
+var getImageName = function() {
+    
+  document.onclick = function(e) {
+    if (e.target.tagName == 'A') {
+       
+      var page = e.target.getAttribute("data-page");
+      console.log(page)
+     
+
+let element = document.getElementById("header");
+
+
+
+      if (page === 'about'){
+        
+        element.style.backgroundImage = "url(./images/2.png)"
+
+       }
+       else if (page === 'home'){
+        element.style.backgroundImage = "url(./images/1.png)"
+
+       }
+       else if(page === 'contact'){
+        element.style.backgroundImage = "url(./images/3.png)";
+       }
+       
+       else if(page === 'clients'){
+        element.style.backgroundImage = "url(./images/4.png)";;
+       }
+    }
+  }
+}
+
+getImageName();
+
+})
+
+var logo = document.querySelector('.logo-header'),
+blurredBird = document.querySelector('.back-bird'),
+foreBird = document.querySelector('.fore-bird');
+
+
+window.addEventListener('scroll',function(){
+
+    var scrolled = window.scrollY;
+    console.log(scrolled);
+    logo.style.transform= "translate(0px,"+ scrolled/2+"%)";
+    foreBird.style.transform= "translate(0px,"- scrolled/80+"%)";
+
+
+});
+
+</script>
+</html>
